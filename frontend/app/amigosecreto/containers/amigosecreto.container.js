@@ -35,11 +35,6 @@ class AmigoSecretoController {
   }
 
   salvarPessoa(pessoa) {
-    const success = () => {
-      this.cadastrando = false
-      this.changeAlert(true, 'alert-success', `Pessoa cadastrada com sucesso`)
-      this.listarPessoas()
-    }
     const failure = res => {
       this.changeAlert(true, 'alert-danger', (res.data || {}).message)
       this._scope.$apply()
@@ -47,11 +42,19 @@ class AmigoSecretoController {
       
     if (pessoa._id) {
       this.pessoaService.alterar(pessoa)
-      .then(success)
+      .then(() => {
+        this.cadastrando = false
+        this.changeAlert(true, 'alert-success', `Pessoa alterada com sucesso`)
+        this.listarPessoas()
+      })
       .catch(failure)
     } else {
       this.pessoaService.adicionar(pessoa)
-      .then(success)
+      .then(() => {
+        this.cadastrando = false
+        this.changeAlert(true, 'alert-success', `Pessoa cadastrada com sucesso`)
+        this.listarPessoas()
+      })
       .catch(failure)
     }
   }
