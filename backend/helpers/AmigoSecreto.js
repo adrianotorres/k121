@@ -1,5 +1,4 @@
 const Pessoa = require('../pessoas/pessoa.model')
-let pessoasSalvas = []
 
 const embaralhar = valores =>
     valores
@@ -23,7 +22,7 @@ const sortear = pessoaIds =>
     }, [])
 
 const findPessoaAndUpdateAmigoSecreto = async (sorteado) => { //eslint-disable-line
-    const pessoaSalva = await Pessoa.findOneAndUpdate({
+    await Pessoa.findOneAndUpdate({
         _id: sorteado.pessoaId
     }, {
         $set: {
@@ -32,13 +31,11 @@ const findPessoaAndUpdateAmigoSecreto = async (sorteado) => { //eslint-disable-l
     })
     .populate('amigoSecreto')
     .exec()
-    pessoasSalvas.push(pessoaSalva)
 }
 const salvarAmigosSecretos = async sorteados => {
     pessoasSalvas = []
     const promises = sorteados.map(findPessoaAndUpdateAmigoSecreto)
     await Promise.all(promises)
-    return pessoasSalvas
 }
 
 module.exports = { embaralhar, sortear, salvarAmigosSecretos}
