@@ -1,13 +1,13 @@
 k121 - Amigo Secreto
 ============================
 
-# O que é?
+## O que é?
 Um sistema para sorteio de um amigo secreto, desenvolvido em Node, Express e Angular 1.7
 
-# Demo
+## Demo
 
 
-# Como executar?
+## Como executar?
 Baixe o projeto
 ```
  git clone https://github.com/adrianotorres/k121
