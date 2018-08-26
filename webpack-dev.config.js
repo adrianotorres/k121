@@ -7,7 +7,7 @@ const DESTINATION = path.resolve(__dirname, './frontend/dist')
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development'
 const API_PORT = process.env.PORT || process.env.API_PORT || 4040
-const API_URL = process.env.API_URL = 'localhost'
+const API_URL = process.env.API_URL = 'http://localhost'
 const API_HOST = process.env.API_HOST
 const METADATA = webpackMerge(commonConfig.metadata, {
     API_URL,

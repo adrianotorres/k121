@@ -8,7 +8,7 @@ export default class AmigoSecretoService {
 
   async sortear(pessoaIds) {
     return await this.$http.post(
-      'http://'+this.API_HOST+'/api/amigossecretos',
+      this.API_HOST+'/api/amigossecretos',
       { pessoaIds }
     )
   }

@@ -8,27 +8,27 @@ export default class PessoaService {
   
     async listar() {
       return await this.$http.get(
-        'http://'+this.API_HOST+'/api/pessoas',
+        this.API_HOST+'/api/pessoas',
       )
     }
   
     async adicionar(pessoa) {
       return await this.$http.post(
-        'http://'+this.API_HOST+'/api/pessoas',
+        this.API_HOST+'/api/pessoas',
         { pessoa }
       )
     }
   
     async alterar(pessoa) {
       return await this.$http.put(
-        'http://'+this.API_HOST+'/api/pessoas/${pessoa._id}',
+        this.API_HOST+'/api/pessoas/${pessoa._id}',
         { pessoa }
       )
     }
   
     async remover(id) {
       return await this.$http.delete(
-      'http://'+this.API_HOST+'/api/pessoas/${id}'
+      this.API_HOST+'/api/pessoas/${id}'
       )
     }
     
