@@ -26,13 +26,12 @@ Certifique-se de ter o docker e docker-compose instalados
 ### Executando com NPM local
 ```
  npm install
- npm run build
- npm run back:dev
+ npm start
  Acesse http://localhost:4040
 ```
 
 ```
- ou, em duas abas separadas
+ ou, em duas abas separadas para utilizar o hot loading em desenvolvimento
  npm install
  npm run front:dev
  npm run back:dev
