@@ -1,0 +1,14 @@
+<div class="row pessoa-list" ng-repeat="pessoa in $ctrl.pessoas">
+    <div class="coluna col-md-5">
+        {{ pessoa.nome }}
+    </div>
+    <div class="coluna col-md-5">
+        {{ pessoa.email }}
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-warning" ng-click="$ctrl.alterar(pessoa)">Alterar</button>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-danger" ng-click="$ctrl.remover(pessoa)">Remover</button>
+    </div>
+</div>

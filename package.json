@@ -1,0 +1,52 @@
+{
+  "name": "k121",
+  "version": "1.0.0",
+  "description": "Amigo secreto da Kenoby ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run build",
+    "back:dev": "nodemon backend/index",
+    "front:dev": "webpack-dev-server --host 0.0.0.0 --config webpack-dev.config.js",
+    "build": "npm run build:dev",
+    "build:dev": "webpack --config webpack-dev.config.js",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --ui bdd --reporter spec --colors backend --recursive --exit",
+    "lint": "./node_modules/.bin/eslint *.js backend config --color"
+  },
+  "author": "adriano.skilo@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "1.0.18",
+    "angular": "^1.7.2",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "http-status": "^1.2.0",
+    "method-override": "^3.0.0",
+    "mongoose": "5.2.8",
+    "mongoose-timestamp": "^0.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.28.11",
+    "eslint": "3.16.1",
+    "eslint-config-airbnb-base": "7.1.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-watch": "2.1.14",
+    "extract-text-webpack-plugin": "v4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "mocha": "^5.2.0",
+    "node-sass": "^4.9.0",
+    "nodemon": "^1.18.3",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "supertest": "^3.1.0",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  }
+}

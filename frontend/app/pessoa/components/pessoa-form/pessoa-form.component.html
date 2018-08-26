@@ -1,0 +1,18 @@
+  <form name="pessoaForm" novalidate>
+    <div class="row">
+      <div class="coluna col-md-5">
+          <input type="text" class="form-control" ng-model="$ctrl.pessoa.nome" placeholder="Digite o nome da pessoa" required>
+      </div>
+      <div class="coluna col-md-5">
+          <input type="email" email class="form-control" ng-model="$ctrl.pessoa.email" placeholder="Digite o email da pessoa" required>
+      </div>
+      <div class="col-md-1">
+          <button class="btn btn-success" ng-click="$ctrl.salvar()" ng-disabled="pessoaForm.$invalid">
+              {{ $ctrl.pessoa._id ? 'Alterar' : 'Adicionar' }}
+          </button>
+      </div>
+      <div class="col-md-1">
+          <button class="btn btn-warning" ng-click="$ctrl.cancelar()">Cancelar</button>
+      </div>
+    </div>
+  </form>
