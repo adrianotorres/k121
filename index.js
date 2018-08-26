@@ -16,8 +16,9 @@ mongoose.connection.on('error', () => {
 
 server.use(express.static(path.join(__dirname, './frontend/dist')))
 
-server.listen(process.env.API_PORT, () => {
-  console.info(`server started on port ${process.env.API_PORT} (${process.env.ENV})`) //eslint-disable-line
+const port = process.env.PORT || process.env.API_PORT || 4040
+server.listen(port, () => {
+  console.info(`server started on port ${port} (${process.env.ENV})`) //eslint-disable-line
 })
 
 module.exports = server
