@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run build",
+    "start": "npm run build && node index.js",
     "back:dev": "nodemon backend/index",
     "front:dev": "webpack-dev-server --host 0.0.0.0 --config webpack-dev.config.js",
     "build": "npm run build:dev",
