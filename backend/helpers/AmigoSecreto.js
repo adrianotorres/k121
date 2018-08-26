@@ -30,12 +30,15 @@ const findPessoaAndUpdateAmigoSecreto = async (sorteado) => { //eslint-disable-l
             amigoSecreto: sorteado.amigoSecretoId
         }
     })
+    .populate('amigoSecreto')
     .exec()
     pessoasSalvas.push(pessoaSalva)
 }
 const salvarAmigosSecretos = async sorteados => {
+    pessoasSalvas = []
     const promises = sorteados.map(findPessoaAndUpdateAmigoSecreto)
     await Promise.all(promises)
     return pessoasSalvas
 }
+
 module.exports = { embaralhar, sortear, salvarAmigosSecretos}
