@@ -1,8 +1,19 @@
 const path = require('path')
 const webpackMerge = require('webpack-merge')
+const webpack = require('webpack')
 const commonConfig = require('./webpack.config.js')
 
 const DESTINATION = path.resolve(__dirname, './frontend/dist')
+
+const ENV = process.env.ENV = process.env.NODE_ENV = 'development'
+const API_PORT = process.env.PORT || process.env.API_PORT || 4040
+const API_URL = process.env.API_URL = 'localhost'
+const METADATA = webpackMerge(commonConfig.metadata, {
+  API_URL: API_URL,
+  API_PORT: API_PORT,
+  ENV: ENV
+});
+
 
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-source-map',
@@ -17,4 +28,16 @@ module.exports = webpackMerge(commonConfig, {
     path: DESTINATION,
     filename: 'js/index.js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+        'ENV': JSON.stringify(METADATA.ENV),
+        'API_URL': JSON.stringify(METADATA.API_URL),
+        'process.env': {
+          'ENV': JSON.stringify(METADATA.ENV),
+          'NODE_ENV': JSON.stringify(METADATA.ENV),
+          'API_URL' : JSON.stringify(METADATA.API_URL),
+          'API_PORT' : JSON.stringify(METADATA.API_PORT)
+        }
+    })
+  ]
 })

@@ -7,7 +7,7 @@ export default class AmigoSecretoService {
 
   async sortear(pessoaIds) {
     return await this.$http.post(
-      'http://localhost:4040/api/amigossecretos',
+      'http://'+process.env.API_URL+':'+process.env.API_PORT+'/api/amigossecretos',
       { pessoaIds }
     )
   }
