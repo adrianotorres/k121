@@ -14,7 +14,8 @@ class AmigoSecretoController {
   }
 
   async remover(id) {
-    this.pessoas = await this.pessoaService.remover(id)
+    await this.pessoaService.remover(id)
+    this.changeAlert(true, 'alert-success', 'Pessoa removida com sucesso')
     this.listarPessoas()
   }
 
