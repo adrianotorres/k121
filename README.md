@@ -5,7 +5,7 @@ k121 - Amigo Secreto
 Um sistema para sorteio de um amigo secreto, desenvolvido em Node, Express e Angular 1.7
 
 ## Demo
-
+https://kenoby121.herokuapp.com/
 
 ## Como executar?
 Baixe o projeto
