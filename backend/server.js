@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const httpStatus = require('http-status')
 const routes = require('./route')
 const APIError = require('./helpers/APIError')
-const config = require('../config')
 
 const app = express()
 
@@ -27,7 +26,7 @@ app.use((err, _req, _res, next) => {
 app.use((err, _req, res, _next) =>
     res.status(err.status).json({
         message: err.message,
-        stack: config.env === 'development' ? err.stack : {},
+        stack: process.env.ENV === 'development' ? err.stack : {},
         errors: err.errors,
         status: httpStatus[err.status],
         statusCode: err.status

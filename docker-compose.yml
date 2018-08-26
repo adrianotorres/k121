@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: ./backend/Dockerfile
     env_file:
-    - ./backend/.env
+    - .env
     command: npm run back:dev
     volumes:
       - .:/app
