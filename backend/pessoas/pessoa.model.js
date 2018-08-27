@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const timestamps = require('mongoose-timestamp')
 
-const Schema = mongoose.Schema
+const schema = mongoose.Schema
 
 /**
  * Schema para.
@@ -10,7 +10,7 @@ const Schema = mongoose.Schema
  * @property {number} req.query.limit - Número que informa o limite de pessoas na busca.
  * @returns {Promise<Pessoa[]>}
 */
-const PessoaSchema = Schema({ //eslint-disable-line
+const PessoaSchema = schema({
     nome: {
         type: String,
         required: [true, 'O nome da pessoa não pode ser vazio'],
@@ -27,7 +27,7 @@ const PessoaSchema = Schema({ //eslint-disable-line
         unique: true
     },
     amigoSecreto: {
-        type: Schema.Types.ObjectId,
+        type: schema.Types.ObjectId,
         ref: 'Pessoa'
     }
 })

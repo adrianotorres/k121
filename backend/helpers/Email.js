@@ -13,7 +13,7 @@ const transporter = nodeMailer.createTransport({
     maxMessages: 3
 })
 
-const enviarEmail = async (pessoa) => {
+const enviarEmail = async pessoa => {
     const mailOptions = {
         from: process.env.MAIL_FROM,
         to: pessoa.email,

@@ -1,7 +1,7 @@
-const express = require('express')
+const expressRouter = require('express').Router
 const controller = require('./pessoa.controller')
 
-const router = express.Router() //eslint-disable-line
+const router = expressRouter()
 
 router.route('/')
   /** GET /api/pessoas - Busca todas pessoas */

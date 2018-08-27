@@ -4,8 +4,13 @@ services:
     build:
       context: .
       dockerfile: ./backend/Dockerfile
-    env_file:
-    - .env
+    environment:
+      MONGO_HOST: ${MONGO_HOST}
+      MAIL_HOST: ${MAIL_HOST}
+      MAIL_PORT: ${MAIL_PORT}
+      MAIL_USER: ${MAIL_USER}
+      MAIL_PASS: ${MAIL_PASS}
+      MAIL_FROM: ${MAIL_FROM}
     command: npm run back:dev
     volumes:
       - .:/app

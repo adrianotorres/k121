@@ -21,7 +21,7 @@ const sortear = pessoaIds =>
         }
     }, [])
 
-const findPessoaAndUpdateAmigoSecreto = async (sorteado) => { //eslint-disable-line
+const findPessoaAndUpdateAmigoSecreto = async sorteado => {
     await Pessoa.findOneAndUpdate({
         _id: sorteado.pessoaId
     }, {
